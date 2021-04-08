@@ -1,0 +1,48 @@
+/**
+Inheritance between classes
+allow herichary of class which relate classes
+from base class  we can create sub classes or branch classes 
+avoid code duplication 
+*/
+#include<iostream>
+
+class Entity  // create a Entity class 
+{
+public:
+	float X, Y; 
+	void Move(float xa, float ya)
+	{
+		X += xa;
+		Y += ya; 
+	}
+};  // end of class with semicolon 
+
+class Player : public Entity // we maker superset of class Entity 
+	// it is player and entity  it's both of types main + sub class
+{ 
+
+public:
+	const char* Name; 
+/**	float X, Y;
+	void Move(float xa, float ya)
+	{
+		X += xa;
+		Y += ya;
+	}
+	*/
+};
+
+
+int main()
+{
+	std::cout << sizeof(Entity) << std::endl; // check size of each class 
+	std::cout << sizeof(Player) << std::endl; // four bytes are increased here
+
+	Player player; // player is super set 
+				         // it has all parameters entity have 
+	player.Move(5 , 5 );
+	player.X = 2; 
+	
+	std::cin.get();
+}
+//method to Extent the existing class 

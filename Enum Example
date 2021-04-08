@@ -1,1 +1,48 @@
+#include<iostream>
 
+class Log  // create a Log class 
+{
+public: // seperate different parts of class e.g static / dynamic variables
+ 
+	enum Level  //enum class 
+	{
+		LevelError = 0,  LevelWarning , LevelInfo 
+	};
+
+
+private:
+	Level m_LogLevel = LevelInfo; // m_ this is class member  variable(private) 
+public:
+	void SetLevel(Level level)  // function defination in class 
+	{
+		m_LogLevel = level; // level is just local veriable  
+	}
+
+	void Error(const char* message)
+	{
+		if (m_LogLevel >= LevelError)
+			std::cout << "[ERROR]: " << message << std::endl;
+	}
+	void Warn(const char* message)
+	{
+		if (m_LogLevel >= LevelWarning)
+			std::cout << "[WARNING]: " << message << std::endl;
+	}
+	void Info(const char* message)
+	{
+		if (m_LogLevel >= LevelInfo)
+			std::cout << "[INFO]: " << message << std::endl;
+
+	}
+};  // end of class with semicolon 
+
+int main()
+{
+	Log log;
+	log.SetLevel(Log::LevelError); // call the calss what ever message we want to print 
+	log.Warn("Hello");
+	log.Error("HEllo"); // ths message is printed
+	log.Info("Hello");
+
+	std::cin.get();
+}

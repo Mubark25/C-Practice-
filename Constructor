@@ -1,0 +1,36 @@
+#include<iostream>
+
+class Entity  // create a Log class 
+{
+public:
+	float X, Y;
+//	Entity() {  //we removr init function and use construct 
+//		X = 0.0f;
+//		Y = 0.0f;
+//	}
+	Entity(float x, float y)// constructor with parameters 
+	{ 
+		X = x;
+		Y = y;
+
+	}
+
+	void Print()
+	{
+		std::cout << X << " , " << Y << std::endl; 
+	}
+
+};  // end of class with semicolon 
+
+int main()
+{
+	//Entity e;
+	Entity e(10.0f, 5.0f); 
+	//e.Init(); // extra codo to make more efficient use construct 
+
+	//std::cout << e.X << std::endl;
+
+	e.Print(); //if we not init memory it show rendom number on terminal 
+	std::cin.get();
+
+}

@@ -1,0 +1,44 @@
+/**
+Visibility 
+how members of certain class are visible 
+better way to organise programme 
+3-basic visibility modifiers in C++
+ Private  , Public , protected
+
+*/
+#include<iostream>
+#include <string>
+
+
+
+class Entity // default visibilty private for class for struct its public
+{
+private: //means only this entity class can acess that variables 
+
+	int X, Y; //only this class can use not called on other functions
+
+protected: // can be used in sub classes but still not used in main function 
+	int A, b; 
+
+public: // can be acess every where in main and subclasses
+	Entity()
+	{
+		X = 0; 
+	}
+
+}; 
+
+
+class Player : public Entity //sub class of Entity
+{
+
+
+};
+
+
+int main()
+{
+	Entity e; 
+
+	std::cin.get();
+}

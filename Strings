@@ -1,0 +1,38 @@
+/**
+Strings 
+Its shows group of characters like letters , numbers and symbols. 
+when passing a string or use in functions make sure use by passing "const" and refrencing
+*/
+#include<iostream>
+#include<string>
+void PrintString(const std::string& string) // use refrencing Technique while passing the strings 
+{						// if you not use refrence it allocate new location in heap comperatively slow speed 
+						// we also used const not  to modify within the  function 
+	std::cout << string << std::endl;
+}
+
+int main() 
+{
+	std::string name0 = "MUBARK";                                  //its a const char* array
+                                                                // for add more number into a string you can use string constructor
+	
+	std::string name1 = std::string ("MUBARK ") + "Hello";        //its a const char* array
+	 
+	bool contains = name1.find("M") != std::string::npos;        //If you want to check the character present in string you can verify by this  and print the status on terminal 
+		
+	std::cout << contains << std::endl;                          // check the status 
+
+
+	char* name = "Mubark";                                       // if you define with double qoutes it become char pointer 
+	
+	char name2[7] = { 'M' , 'u', 'b' , 'a', 'r' , ' k', 0 };     //This is array not a string no null is used as termination character  otherwise garbage shown on terminal 
+	
+	
+	std::cout << name0.size() << std::endl;                      // to check the size of string 
+	std::cout << strlen(name) << std::endl;                      //to check the length of char pointer 
+	
+	PrintString(name0); 
+	PrintString(name1);
+  
+	std::cin.get();
+}

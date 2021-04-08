@@ -1,0 +1,45 @@
+/**
+Interface class
+Generic method to call fucntion 
+*/
+#include<iostream>
+#include <string>
+
+class Printable
+{
+public:
+	virtual std::string GetClassName() = 0; 
+};
+
+class Entity : public Printable
+{
+public:
+	virtual std::string GetName() { return "Entity"; } // use virtual function 
+	std::string GetClassName() override { return " Entity"; }
+}; 
+
+
+class Player : public Entity //sub class of Entity
+{
+private:
+	std::string m_Name; 
+public:
+	Player(const std::string& name)
+	:m_Name(name) {}
+	std::string GetName() override { return m_Name;  } // return Name also avoid override 
+	std::string GetClassName() override { return " Player"; }
+};
+
+void Print(Printable* obj)
+{
+	std::cout << obj->GetClassName() << std::endl;
+}
+
+int main()
+{
+	Entity* e = new Entity();
+	Player* p = new Player("Mubark");
+	Print(e);
+	Print(p); 	
+	std::cin.get();
+}

@@ -1,0 +1,105 @@
+//==================Class example==================
+#include<iostream>
+#include"Header.h"
+
+class player // define class here name player 
+{
+public:
+	int x, y;
+	int speed; 
+
+	void Move(int xa , int ya ) // use a function in a class 
+  {   
+		x += xa* speed;   // use veriable of define class in function 
+	    y += xa* speed;
+	}
+
+};
+
+int main()
+{
+	player Player;   // call the class here
+	Player.x = 5;    // use parameter of class 
+	Player.Move(1, -1);   // call the function paramter of call after declaring the Public otherwise you need struct for that purpose 
+	
+	std::cin.get();  // by clicking on window prog will end 
+}
+
+//====================Create a class other example====================
+
+#include<iostream>
+
+class Log  // create a Log class 
+{
+public: // seperate different parts of class e.g static / dynamic variables
+                        
+	const  int LogLevelError = 0 ;
+	const int LogLevelWarning = 1; 
+	const int LogLevelInfo = 2; 
+
+private:
+	int m_LogLevel = LogLevelInfo ; // m_ this is class member  variable(private) 
+public: 
+	void SetLevel(int level)  // function defination in class 
+	{
+		m_LogLevel = level; // level is just local veriable  
+	}
+
+	void Error(const char* message)
+	{	if(m_LogLevel >= LogLevelError)
+		std::cout << "[ERROR]: " << message << std::endl;
+}
+	void Warn(const char* message)
+	{
+		if (m_LogLevel >= LogLevelWarning)
+		std::cout << "[WARNING]: "<<message << std::endl;
+}
+	void Info(const char* message)
+	{
+		if (m_LogLevel >= LogLevelInfo)
+		std::cout << "[INFO]: " << message << std::endl;
+
+	}
+};  // end of class with semicolon 
+
+int main()
+{
+	Log log;
+  log.SetLevel(log.LogLevelError); // call the calss what ever message we want to print 
+	log.Warn("Hello");  
+	log.Error("HEllo");
+	log.Info("Hello"); 
+	
+	std::cin.get(); 
+}
+
+//========================STRUCT Example ================================
+
+#include<iostream>
+
+struct Entity // 
+{
+	int x, y;
+	void Print()
+	{
+		std::cout << x << "," << y << std::endl; 
+	}
+};
+
+
+
+
+int main() {
+	Entity e; 
+	e.x = 2;
+	e.y = 3;
+
+	Entity e1;
+	e1.x = 5;
+	e1.y = 6;
+
+	e.Print();
+	e1.Print(); 
+	std::cin.get(); 
+
+}

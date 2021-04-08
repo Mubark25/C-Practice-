@@ -1,0 +1,36 @@
+#include<iostream>
+
+class Entity  // create a Log class 
+{
+public:
+	float X, Y;
+    Entity() {  //Constructor 
+		X = 0.0f;
+		Y = 0.0f; 
+	std::cout << "Created Entity...!" << std::endl;
+	}
+
+	~Entity()  //destructor called when object is destroyed 
+	{
+		std::cout << "Destroyed Entity...!" << std::endl;
+	}
+
+	void Print()
+	{
+		std::cout << X << " , " << Y << std::endl; 
+	}
+
+};  // end of class with semicolon 
+void Function() {
+
+	Entity e;
+	e.Print();
+}
+
+
+int main()
+{
+	Function();
+	std::cin.get();
+}
+//if you allocate heep memory you need to clean that memory manually 

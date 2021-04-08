@@ -1,0 +1,38 @@
+/**
+Virtual functions 
+allow us to overwrite meathod in sub classes 
+cons:
+we need additional memory for Vitual function
+wo go through the vitual table while getting over desired function so we get performane panelty 
+*/
+#include<iostream>
+#include <string>
+
+class Entity  // create a Entity class 
+{
+public:
+	virtual std::string GetName() { return "Entity";  } // use virtual function 
+
+};  // end of class with semicolon 
+
+class Player : public Entity //sub class of Entity "Player"
+{
+private:
+	std::string m_Name; 
+public:
+	Player(const std::string& name)
+		:m_Name(name) {}
+	std::string GetName() override { return m_Name;  } // return Name also avoid override 
+};
+
+
+int main()
+{
+	Entity* e = new Entity();
+	std::cout << e->GetName() << std::endl; // call the entity function 
+
+	Player* p = new Player("Mubark");
+ 	std::cout << p->GetName() << std::endl;  // get name function 
+	
+	std::cin.get();
+}

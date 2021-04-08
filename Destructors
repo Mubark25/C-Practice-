@@ -33,4 +33,4 @@ int main()
 	Function();
 	std::cin.get();
 }
-//if you allocate heep memory you need to clean that memory manually 
+//if you allocate heep memory manually you need to clean that memory manually 

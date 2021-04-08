@@ -1,0 +1,40 @@
+/**
+Strings  Literals
+series of character in double qoutes  
+store always on read only memory 
+*/
+#include<iostream>
+#include<string>
+#include<stdlib.h>
+
+
+int main()  
+{
+	using namespace std::string_literals;
+
+	std::string name0 = u8"Muabrk "s + "Hello"; //One byte character 
+	
+	std::wstring name1 = L"Muabrk "s + L"Hello"; // its a wide string 2 byte of memory  
+	
+	std::u32string name2 = U"Muabrk "s + U"Hello"; // various character  length 4 bytes 
+
+	const char* example = R"(Line1 // if you want to use multiple line of string 
+Line2
+line3)"; 
+
+	const char name[8] = u8"Mubark"; // you cannot change this because of const char*
+	// if you make some changes in string 
+	// e.g change the 2nd location of character name[2] = 'K' ; 
+	//first set const char* --> to  char name[] = "Muabrk";
+
+	const wchar_t* name3 = L"Muabrk"; // 2 bytes per character 
+
+	const char16_t*  name4 = u"Mubark";  // 2 byte per character thing 
+
+	const char32_t* name5 = U"Muabrk";  //  4 byter per character 
+
+
+	std::cout << example<< std::endl; 
+
+	std::cin.get();
+}

@@ -1,0 +1,38 @@
+/**
+Mutable
+mutable means we able to change variables even if it's const 
+
+*/
+#include<iostream>
+#include<string>
+
+class  Entity
+{
+private :
+	std::string m_Name;
+	mutable int m_DebugCount = 0;  // allow to change in const methods 
+
+
+public:
+	const std::string& GetName() const //const method 
+	{
+		m_DebugCount++;  //class member
+		return m_Name;
+
+	}
+};
+
+int main()  
+{
+	const Entity e; 
+	e.GetName();
+	int x = 8; 
+		auto f = [&]() mutable  //create lambda here  and also use mutable here
+		{
+			x++;
+			std::cout << x << std::endl;
+		};
+		f(); 
+
+	std::cin.get();
+}

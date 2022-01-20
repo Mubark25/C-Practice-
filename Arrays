@@ -22,3 +22,52 @@ int main()
 	delete[] another; 
 	std::cin.get();
 }
+
+
+//============================================================================
+// Name        : test.cpp
+// Author      : Mubark
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+#include <iostream>
+#include <chrono>
+#include <unistd.h>
+
+struct Timer {
+
+public:
+
+	Timer() {  // make a constructor in struct 
+
+		char array_len[26];      // set array length to 26 which stores 26 char 
+		int index = 0;
+		for (int i = 'a'; i <= 'z'; i++) {
+
+			array_len[index] = i;
+
+			std::cout << array_len[index] << std::endl;
+			index++;
+		}
+	}
+
+	void alphabetz_print() { // function in struct 
+		char alphabetz;
+		int i = 1;
+		for (alphabetz = 'a'; alphabetz <= 'z'; alphabetz++) {
+			std::cout << i << ": " << alphabetz << "\n";
+			i++;
+		}
+	}
+};
+
+int main() {
+
+	Timer myobj;          // make instance of struct  
+
+	myobj.alphabetz_print();    // call function in main programme 
+
+	std::cin.get();
+
+}

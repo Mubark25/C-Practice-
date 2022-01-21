@@ -103,3 +103,58 @@ int main() {
 	std::cin.get(); 
 
 }
+
+//============================================================================
+// Name        : test.cpp
+// Author      : Mubark
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Class in C++, Ansi-style
+//============================================================================
+#include <iostream>
+#include <string>
+
+struct GameEntry {
+
+public:
+	std::string name;
+	int score;
+	GameEntry() {   // Make a calss of Game entry 
+
+		name = "";
+		score = 0;
+		int index = 0;
+		std::string dataStoreArrayFirst[3];     // Two data entry Array
+		int dataStoreArraySecond[3];
+
+		for (int i = 0; i < 3; i++) {
+			std::cout << "Enter name : ";
+			{
+				std::cin >> name;
+				dataStoreArrayFirst[index] = name;   //Enter palyer name 
+			}
+
+			std::cout << "Submit your score:";
+			{
+				std::cin >> score;                   //Enter plaxyer score 
+				dataStoreArraySecond[index] = score;
+
+				while (score < 0.0 || score > 100) {
+					std::cout << "Please re-enter a score between 0 - 100"
+							<< std::endl;
+					std::cin >> score;
+				}
+			}
+			index++;
+		}
+	}
+
+};
+
+int main() {
+
+	GameEntry myObject;   //make object of class ad it is displayed on consol 
+
+	std::cin.get();
+
+}

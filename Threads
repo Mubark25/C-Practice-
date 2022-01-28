@@ -1,0 +1,93 @@
+//============================================================================
+// Name        : test.cpp
+// Author      : Mubark
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+#include <iostream>
+#include <string>
+#include <thread>
+
+struct NameEntry {
+
+public:
+
+	NameEntry() {   // Make a constructor of Name entry
+
+		std::string name;
+
+		int index = 0;
+		std::string dataStoreArrayFirst[3];     // Two data entry Array
+
+		std::cout << "Enter name : ";
+		{
+			std::cin >> name;
+			dataStoreArrayFirst[index] = name;   //Enter palyer name
+			index++;
+		}
+
+	}
+
+	void printNameStatus() {
+
+		std::cout << "Name status updated.. \n";
+
+	}
+
+};
+
+class ScoreEntry {
+
+public:
+
+	ScoreEntry() {
+
+		std::string dataStoreArraySecond[3];
+		int score;
+		int index = 0;
+
+		std::cout << "Submit your score:";
+
+		{
+			std::cin >> score;                   //Enter plaxyer score
+			dataStoreArraySecond[index] = score;
+
+			while (score < 0.0 || score > 100) {
+				std::cout << "Please re-enter a score between 0 - 100"
+						<< std::endl;
+				std::cin >> score;
+			}
+			index++;
+
+		}
+	}
+
+	void printScoreStatus() {
+
+		std::cout << "Score status updated \n";
+
+	}
+
+};
+
+int main() {
+
+//	NameEntry myObjectOne;
+	NameEntry *myObjectOne = new NameEntry();
+
+	ScoreEntry *myObjectTwo = new ScoreEntry();
+
+	std::thread T1(&NameEntry::printNameStatus, myObjectOne); //Call class constructor and class function();
+	std::thread T2(&ScoreEntry::printScoreStatus, myObjectTwo);
+
+	T1.join();
+	T2.join();
+
+	std::cout << "Both status are updated \n";
+
+	delete myObjectOne;
+	delete myObjectTwo;
+	std::cin.get();
+
+}
